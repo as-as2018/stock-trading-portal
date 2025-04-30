@@ -5,6 +5,8 @@ import lotRoutes from './routes/lotRoutes.js'
 import morgan from "morgan";
 import swaggerUi from 'swagger-ui-express';
 import { swaggerDocument } from "../doc/swagger.js";
+import cors from "cors";
+
 
 
 
@@ -12,6 +14,16 @@ import { swaggerDocument } from "../doc/swagger.js";
 const app = express();
 
 // Middleware
+app.use(
+    cors({
+      origin: [
+        "http://localhost:5173",
+        'https://stock-portal.netlify.app/'
+      ],
+      credentials: true,
+    })
+  );
+
 app.use(express.json());
 
 app.use(morgan('combined'))
