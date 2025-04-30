@@ -3,7 +3,7 @@ info:
   title: stock-trading-portal
   version: 1.0.0
 servers:
-  - url: http://localhost:5000
+  - url: https://stock-trading-portal-dlx2.onrender.com/
 tags:
   - name: authRoutes
   - name: tradeRoutes
