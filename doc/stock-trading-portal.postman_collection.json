@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "bbbca1ac-3875-4f14-92ec-21bcfdf55699",
+		"name": "stock-trading-portal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44562252",
+		"_collection_link": "https://amanshrivas.postman.co/workspace/ab702775-8696-4647-808c-494444f110f3/collection/44562252-bbbca1ac-3875-4f14-92ec-21bcfdf55699?action=share&source=collection_link&creator=44562252"
+	},
+	"item": [
+		{
+			"name": "authRoutes",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@fundtec.in\",\r\n    \"password\":\"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tradeRoutes",
+			"item": [
+				{
+					"name": "createTrade",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGZ1bmR0ZWMuaW4iLCJpYXQiOjE3NDYwMDY5NjAsImV4cCI6MTc0NjA5MzM2MH0.yHvb5ufuUhPgtUIgxCFUy7C9DI2s_QnwncpIIbtbgmE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stock_name\": \"Apple\",\r\n    \"quantity\": -150,\r\n    \"broker_name\": \"Broker A\",\r\n    \"price\": 170\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/trades",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"trades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTrade",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@fundtec.in\",\r\n    \"password\":\"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/trades",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"trades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bulkCreateTrades",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGZ1bmR0ZWMuaW4iLCJpYXQiOjE3NDYwMDY5NjAsImV4cCI6MTc0NjA5MzM2MH0.yHvb5ufuUhPgtUIgxCFUy7C9DI2s_QnwncpIIbtbgmE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/trades/bulk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"trades",
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "lotRoutes",
+			"item": [
+				{
+					"name": "getAllLotsFIFO",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGZ1bmR0ZWMuaW4iLCJpYXQiOjE3NDYwMDY5NjAsImV4cCI6MTc0NjA5MzM2MH0.yHvb5ufuUhPgtUIgxCFUy7C9DI2s_QnwncpIIbtbgmE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/lots/fifo?",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"lots",
+								"fifo"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllLotsLIFO",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGZ1bmR0ZWMuaW4iLCJpYXQiOjE3NDYwMDY5NjAsImV4cCI6MTc0NjA5MzM2MH0.yHvb5ufuUhPgtUIgxCFUy7C9DI2s_QnwncpIIbtbgmE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@fundtec.in\",\r\n    \"password\":\"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/lots/lifo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"lots",
+								"lifo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test server",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

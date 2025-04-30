@@ -1,0 +1,126 @@
+openapi: 3.0.0
+info:
+  title: stock-trading-portal
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000
+tags:
+  - name: authRoutes
+  - name: tradeRoutes
+  - name: lotRoutes
+paths:
+  /api/auth/login:
+    post:
+      tags:
+        - authRoutes
+      summary: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: admin@fundtec.in
+                password: admin123
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/trades:
+    post:
+      tags:
+        - tradeRoutes
+      summary: createTrade
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                stock_name: Apple
+                quantity: -150
+                broker_name: Broker A
+                price: 170
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGZ1bmR0ZWMuaW4iLCJpYXQiOjE3NDYwMDY5NjAsImV4cCI6MTc0NjA5MzM2MH0.yHvb5ufuUhPgtUIgxCFUy7C9DI2s_QnwncpIIbtbgmE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - tradeRoutes
+      summary: getTrade
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/trades/bulk:
+    post:
+      tags:
+        - tradeRoutes
+      summary: bulkCreateTrades
+      requestBody:
+        content: {}
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGZ1bmR0ZWMuaW4iLCJpYXQiOjE3NDYwMDY5NjAsImV4cCI6MTc0NjA5MzM2MH0.yHvb5ufuUhPgtUIgxCFUy7C9DI2s_QnwncpIIbtbgmE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/lots/fifo:
+    get:
+      tags:
+        - lotRoutes
+      summary: getAllLotsFIFO
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGZ1bmR0ZWMuaW4iLCJpYXQiOjE3NDYwMDY5NjAsImV4cCI6MTc0NjA5MzM2MH0.yHvb5ufuUhPgtUIgxCFUy7C9DI2s_QnwncpIIbtbgmE
+        - name: ''
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/lots/lifo:
+    get:
+      tags:
+        - lotRoutes
+      summary: getAllLotsLIFO
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGZ1bmR0ZWMuaW4iLCJpYXQiOjE3NDYwMDY5NjAsImV4cCI6MTc0NjA5MzM2MH0.yHvb5ufuUhPgtUIgxCFUy7C9DI2s_QnwncpIIbtbgmE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
