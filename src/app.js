@@ -18,7 +18,7 @@ app.use(
     cors({
       origin: [
         "http://localhost:5173",
-        'https://stock-portal.netlify.app/'
+        'https://stock-portal.netlify.app'
       ],
       credentials: true,
     })
